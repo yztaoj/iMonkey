@@ -67,6 +67,16 @@ extend(UIMonkey.prototype, {
 		return result;
 	},
 
+	dismissWelcome: function(){
+		this.device.pushTimeout(0.5);
+		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
+		this.device.popTimeout();
+	},
+
 	releaseMonkey: function(){
 		while(true){
 			UIAutoMonkey.triggerRandomEvent();
@@ -81,5 +91,6 @@ extend(UIMonkey.prototype, {
 	}
 });
 
-new UIMonkey(UIATarget.localTarget()).releaseMonkey()
-
+var monkey = new UIMonkey(UIATarget.localTarget());
+monkey.dismissWelcome();
+monkey.releaseMonkey();
