@@ -23,7 +23,7 @@
 var UIAutoMonkey = {
 
 	config: {
-		numberOfEvents: 1000,
+		numberOfEvents: 1000000,
 		delayBetweenEvents: 0.05,    // In seconds
 
 		// If the following line is uncommented, then screenshots are taken
