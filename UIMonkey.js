@@ -69,15 +69,17 @@ extend(UIMonkey.prototype, {
 
 	dismissWelcome: function(){
 		this.device.pushTimeout(0.5);
-		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
-		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
-		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
-		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
-		this.app.flickInsideWithOptions({startOffset:{x:1,y:0.5},endOffset:{x:0,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:0.9,y:0.5},endOffset:{x:0.1,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:0.9,y:0.5},endOffset:{x:0.1,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:0.9,y:0.5},endOffset:{x:0.1,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:0.9,y:0.5},endOffset:{x:0.1,y:0.5}});
+		this.app.flickInsideWithOptions({startOffset:{x:0.9,y:0.5},endOffset:{x:0.1,y:0.5}});
 		this.device.popTimeout();
 	},
 
 	releaseMonkey: function(){
+		this.device.delay(1);
+		this.dismissWelcome();
 		while(true){
 			UIAutoMonkey.triggerRandomEvent();
 			UIAutoMonkey.delay();
@@ -92,5 +94,4 @@ extend(UIMonkey.prototype, {
 });
 
 var monkey = new UIMonkey(UIATarget.localTarget());
-monkey.dismissWelcome();
 monkey.releaseMonkey();
