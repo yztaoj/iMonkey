@@ -45,7 +45,11 @@ extend(UIMonkey.prototype, {
 		var keyboard = this.app.keyboard();
 		if(keyboard.isValid() && secText.hasKeyboardFocus()){
 			secText.setValue("");
-			keyboard.typeString(this.config.login.psw);
+			try{
+				keyboard.typeString(this.config.login.psw);
+			} catch(e){
+				secText.setValue(this.config.login.psw);
+			}
 		}
 		else{
 			secText.setValue(this.config.login.psw);
